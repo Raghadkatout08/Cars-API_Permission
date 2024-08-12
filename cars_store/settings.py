@@ -100,11 +100,19 @@ WSGI_APPLICATION = 'cars_store.wsgi.application'
 # }
 
 DATABASES = {
-    'default': dj_database_url.config(
-        default='postgres://kwsdvktn:JgKoDBg_VZ5LwZa1igNaZG5TlHZKLigM@flora.db.elephantsql.com/kwsdvktn',
-        conn_max_age=1000,
-    )
+    'default': {
+        'ENGINE': 'django_db_geventpool.backends.postgresql_psycopg2',
+        'NAME': 'kwsdvktn',
+        'USER': 'kwsdvktn',
+        'PASSWORD': 'JgKoDBg_VZ5LwZa1igNaZG5TlHZKLigM',
+        'HOST': 'flora.db.elephantsql.com',
+        'PORT': '5432',
+        'OPTIONS': {
+            'MAX_CONNS': 20,
+        },
+    }
 }
+
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
