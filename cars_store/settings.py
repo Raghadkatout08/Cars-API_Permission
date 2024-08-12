@@ -55,7 +55,6 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
-    'cars_api.middleware.CloseDBConnectionsMiddleware',
 ]
 
 ROOT_URLCONF = 'cars_store.urls'
@@ -103,8 +102,7 @@ WSGI_APPLICATION = 'cars_store.wsgi.application'
 DATABASES = {
     'default': dj_database_url.config(
         default='postgres://kwsdvktn:JgKoDBg_VZ5LwZa1igNaZG5TlHZKLigM@flora.db.elephantsql.com/kwsdvktn',
-        conn_max_age=600,
-        ssl_require=True,
+        conn_max_age=1000,
     )
 }
 

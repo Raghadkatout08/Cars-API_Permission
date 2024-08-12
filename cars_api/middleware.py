@@ -1,3 +1,5 @@
+# cars_api/middleware.py
+
 from django.db import connection
 
 class CloseDBConnectionsMiddleware:
